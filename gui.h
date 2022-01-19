@@ -4,8 +4,10 @@
 #include <QWidget>
 #include <QTimer>
 #include "ui_gui.h"
+#include "gpio.h"
 
 const int TIMEOUT = 1000;
+
 namespace Ui {
 class Gui;
 }
@@ -17,6 +19,7 @@ class Gui : public QWidget
 public:
     explicit Gui(QWidget *parent = nullptr);
     ~Gui();
+    void set(int oin,bool value);
 
 private slots:
     void on_f_Slider_valueChanged(int value);
@@ -26,6 +29,7 @@ private:
     Ui::Gui *ui;
     QTimer* m_timer;
     bool m_state;
+    gpio* m_leds;
 
 };
 
